@@ -1,3 +1,8 @@
+.inputFilter{
+  padding: 10px;
+    display: flex;
+    justify-content: center;
+}
 .albums{
   display: flex;
   flex-wrap: wrap;

@@ -23,7 +23,9 @@ function App() {
   };
   return (
     <>
-      <input type="input" onChange={(e) => fillterData(e.target.value)} />
+      <div className="inputFilter">
+        <input type="input" onChange={(e) => fillterData(e.target.value)} placeholder="Write ID"/>
+      </div>
       <div className="albums">
         {albums.length > 0 ? (
           albums.map((album, i) => {
