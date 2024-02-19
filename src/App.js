@@ -14,17 +14,17 @@ function App() {
   }, []);
 
   const fillterData = async (e) => {
-    console.log(e);
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/albums/?id=${e}`
-    );
-    const data = await response.json();
-    e ? setAlbums(data) : fetchData();
+    const matchData = albums.filter(album => album.id.toString().includes(e));
+    e? setAlbums(matchData): fetchData();
   };
   return (
     <>
       <div className="inputFilter">
-        <input type="input" onChange={(e) => fillterData(e.target.value)} placeholder="Write ID"/>
+        <input
+          type="input"
+          onChange={(e) => fillterData(e.target.value)}
+          placeholder="Write ID"
+        />
       </div>
       <div className="albums">
         {albums.length > 0 ? (
