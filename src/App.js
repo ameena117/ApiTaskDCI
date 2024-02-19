@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
+  const [albums, setAlbums] = useState([]);
+  const fetchData = async () => {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/albums`);
+    const data = await response.json();
+    setAlbums(data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fillterData = async (e) => {
+    console.log(e);
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/albums/?id=${e}`
+    );
+    const data = await response.json();
+    e ? setAlbums(data) : fetchData();
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <input type="input" onChange={(e) => fillterData(e.target.value)} />
+      <div className="albums">
+        {albums.length > 0 ? (
+          albums.map((album, i) => {
+            return (
+              <div key={i} className="album">
+                <h2>Album Number {album.id}</h2>
+                <p>{album.title}</p>
+              </div>
+            );
+          })
+        ) : (
+          <div>Loading Album...</div>
+        )}
+      </div>
+    </>
   );
 }
 
