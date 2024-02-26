@@ -1,32 +1,38 @@
 import { useEffect, useState } from "react";
 
-const useAlbum = () => {
+const useInfo = () => {
   const [albums, setAlbums] = useState([]);
   let [matchAlbums, setMatchAlbums] = useState([]);
   const fetchData = async () => {
     const response = await fetch(`https://jsonplaceholder.typicode.com/albums`);
     const data = await response.json();
     setAlbums(data);
-    setMatchAlbums(data);
   };
-
+  
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   const fillterData = async (e) => {
-    e ? setMatchAlbums(albums.filter(album =>
-      album.id.toString().includes(e) ||
-      album.title.toString().includes(e)
-    )) : setMatchAlbums(albums);
+    e
+      ? setMatchAlbums(matchAlbums.filter(
+          (album) =>
+            album.id.toString().includes(e) ||
+            album.title.toString().includes(e)
+        ))
+      : setMatchAlbums(albums);
+    matchAlbums.length > 0 ? setAlbums(matchAlbums): setAlbums(albums);
   };
 
+  useEffect(() => {
+    fillterData();
+  }, []);
 
   return {
-    matchAlbums,
+    albums,
     fetchData,
     fillterData,
   };
 };
 
-export { useAlbum };
+export { useInfo };
