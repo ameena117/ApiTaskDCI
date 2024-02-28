@@ -6,10 +6,10 @@ import File from "./File";
 function App() {
   return (
     <>
-    
-<File/>
-      {/* <Info />
-      <Album /> */}
+
+      <File />
+      <Info />
+      <Album />
     </>
   );
 }
