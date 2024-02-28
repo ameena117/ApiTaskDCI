@@ -1,8 +1,15 @@
 .inputFilter{
   padding: 10px;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
+
+.results{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .albums{
   display: flex;
   flex-wrap: wrap;
@@ -14,4 +21,33 @@
   width: calc(90% /2);
   height: 200px;
   background-color: tan;
+}
+
+input[type=text] {
+	appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid tan;
+	background: rgba(tan, .2);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+}
+
+input[type=date], button {
+	border: .2em solid tan;
+	padding: .5em;
+	border-radius: 2em;
+}
+.inputs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.select {
+  font-size: 1rem;
+  background-color: tan;
+  position: relative;
+  cursor: pointer;
 }

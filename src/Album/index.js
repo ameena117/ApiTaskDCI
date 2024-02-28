@@ -6,9 +6,9 @@ const Album = () => {
     <>
       <div className="inputFilter">
         <input
-          type="input"
+          type="text"
           onChange={(e) => fillterData(e.target.value)}
-          placeholder="Write ID"
+          placeholder="Search for albums"
         />
       </div>
       <div className="albums">
