@@ -1,22 +1,29 @@
-.inputFilter{
+.inputFilter {
   padding: 10px;
   display: flex;
   justify-content: center;
 }
 
-.results{
+.results {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.albums{
+.files {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.albums {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 20px;
 }
-.album{
+
+.album {
   padding: 10px;
   width: calc(90% /2);
   height: 200px;
@@ -24,21 +31,32 @@
 }
 
 input[type=text] {
-	appearance: none;
-	border: none;
-	outline: none;
-	border-bottom: .2em solid tan;
-	background: rgba(tan, .2);
-	border-radius: .2em .2em 0 0;
-	padding: .4em;
+  appearance: none;
+  border: none;
+  outline: none;
+  border-bottom: .2em solid tan;
+  background: rgba(tan, .2);
+  border-radius: .2em .2em 0 0;
+  padding: .4em;
 }
 
-input[type=date], button {
-	border: .2em solid tan;
-	padding: .5em;
-	border-radius: 2em;
+input[type=date],
+button {
+  border: .2em solid tan;
+  padding: .5em;
+  border-radius: 2em;
 }
-.inputs{
+
+input[type=file]::file-selector-button {
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.inputs {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
