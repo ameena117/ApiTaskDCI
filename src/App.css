@@ -45,11 +45,12 @@ button {
   border: .2em solid tan;
   padding: .5em;
   border-radius: 2em;
+  cursor: pointer;
 }
 
 input[type=file]::file-selector-button {
   border: none;
-  background: #084cdf;
+  background: tan;
   padding: 10px 20px;
   border-radius: 10px;
   color: #fff;
