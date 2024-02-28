@@ -33,7 +33,7 @@ const Info = () => {
         <div>Name is {name}</div>
         <div>Adress is {adress}</div>
         <div>Your age is {age}</div>
-        <div>{selectedCountries.map((contry, i) => <div> {contry.label} </div>)}</div>
+        <div>Selected Countries: {selectedCountries.map((contry, i) => <div> {contry.label} </div>)}</div>
       </div>}
       </div>
     </>
